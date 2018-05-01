@@ -1,5 +1,5 @@
 // converted by version  [v3.0.5]
-// on Tue May 01 19:25:15 EEST 2018
+// on Tue May 01 20:48:24 EEST 2018
 
 .package com/sun/jcclassic/samples/wallet {
 	.aid 0xA0:0x0:0x0:0x0:0x62:0x3:0x1:0xC:0x6;
@@ -348,19 +348,39 @@
 					invokevirtual 19;		// setIncomingAndReceive()S
 					s2b;
 					sstore 4;
-				L5:	sload_3;
-					sconst_1;
-					if_scmpne L7;
-				L6:	sload 4;
-					sconst_1;
-					if_scmpeq L8;
-				L7:	sspush 26368;
-					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L8:	aload_2;
+				L5:	aload_2;
 					sconst_2;
 					baload;
 					sstore 5;
-				L9:	aload_0;
+				L6:	sload 5;
+					sconst_2;
+					if_scmpne L10;
+				L7:	sload_3;
+					sconst_4;
+					if_scmpne L9;
+				L8:	sload 4;
+					sconst_4;
+					if_scmpeq L16;
+				L9:	sspush 26368;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto L16;
+				L10:	sload 5;
+					sconst_1;
+					if_scmpeq L12;
+				L11:	sload 5;
+					ifne L15;
+				L12:	sload_3;
+					sconst_2;
+					if_scmpne L14;
+				L13:	sload 4;
+					sconst_2;
+					if_scmpeq L16;
+				L14:	sspush 26368;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto L16;
+				L15:	sspush 26368;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	aload_0;
 					aload_2;
 					sconst_5;
 					baload;
@@ -369,22 +389,22 @@
 					baload;
 					invokespecial 20;		// com/sun/jcclassic/samples/wallet/Wallet.createShort(BB)S
 					sstore 6;
-				L10:	sload 6;
+				L17:	sload 6;
 					sspush 1000;
-					if_scmpgt L12;
-				L11:	sload 6;
-					ifge L13;
-				L12:	sspush 27267;
+					if_scmpgt L19;
+				L18:	sload 6;
+					ifge L20;
+				L19:	sspush 27267;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L13:	sload 5;
-					stableswitch L28 0 2 L14 L19 L22;
-				L14:	getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
+				L20:	sload 5;
+					stableswitch L35 0 2 L21 L26 L29;
+				L21:	getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
 					sload 6;
 					ssub;
-					ifge L16;
-				L15:	sspush 27269;
+					ifge L23;
+				L22:	sspush 27269;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L16:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
+				L23:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
 					aload_0;
 					getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
 					sload 6;
@@ -400,24 +420,24 @@
 					putfield_s 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					sspush 300;
-					if_scmple L18;
-				L17:	sspush 300;
+					if_scmple L25;
+				L24:	sspush 300;
 					putfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
-				L18:	invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
-					goto L29;
-				L19:	getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
+				L25:	invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
+					goto L36;
+				L26:	getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					sload 6;
-					if_scmpge L21;
-				L20:	sspush 27269;
+					if_scmpge L28;
+				L27:	sspush 27269;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L21:	aload_0;
+				L28:	aload_0;
 					dup;
 					getfield_s 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					sload 6;
 					ssub;
 					putfield_s 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
-					goto L29;
-				L22:	aload_0;
+					goto L36;
+				L29:	aload_0;
 					aload_2;
 					bspush 7;
 					baload;
@@ -426,20 +446,20 @@
 					baload;
 					invokespecial 20;		// com/sun/jcclassic/samples/wallet/Wallet.createShort(BB)S
 					sstore 7;
-				L23:	getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
+				L30:	getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					sload 7;
-					if_scmpge L25;
-				L24:	sspush 27269;
+					if_scmpge L32;
+				L31:	sspush 27269;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L25:	sload 7;
+				L32:	sload 7;
 					getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
 					sadd;
 					sload 6;
 					ssub;
-					ifge L27;
-				L26:	sspush 27269;
+					ifge L34;
+				L33:	sspush 27269;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L27:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
+				L34:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
 					aload_0;
 					dup;
 					getfield_s 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
@@ -465,10 +485,10 @@
 					sadd;
 					putfield_s 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
 					invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
-					goto L29;
-				L28:	sspush 27392;
+					goto L36;
+				L35:	sspush 27392;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
-				L29:	return;
+				L36:	return;
 		}
 
 		.method private getBalance(Ljavacard/framework/APDU;)V {
@@ -485,7 +505,7 @@
 					baload;
 					sstore_3;
 				L2:	sload_3;
-					sconst_1;
+					sconst_2;
 					if_scmple L4;
 				L3:	sspush 27392;
 					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
@@ -501,7 +521,7 @@
 					sconst_2;
 					invokevirtual 26;		// setOutgoingLength(S)V
 					sload_3;
-					stableswitch L10 0 1 L8 L9;
+					stableswitch L11 0 2 L8 L9 L10;
 				L8:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
 					aload_2;
 					sconst_0;
@@ -518,7 +538,7 @@
 					s2b;
 					bastore;
 					invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
-					goto L10;
+					goto L12;
 				L9:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
 					aload_2;
 					sconst_0;
@@ -535,7 +555,41 @@
 					s2b;
 					bastore;
 					invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
-				L10:	aload_1;
+					goto L12;
+				L10:	invokestatic 22;		// javacard/framework/JCSystem.beginTransaction()V
+					aload_2;
+					sconst_0;
+					getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
+					bspush 8;
+					sshr;
+					s2b;
+					bastore;
+					aload_2;
+					sconst_1;
+					getfield_s_this 1;		// short com/sun/jcclassic/samples/wallet/Wallet.balance
+					sspush 255;
+					sand;
+					s2b;
+					bastore;
+					aload_2;
+					sconst_2;
+					getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
+					bspush 8;
+					sshr;
+					s2b;
+					bastore;
+					aload_2;
+					sconst_3;
+					getfield_s_this 2;		// short com/sun/jcclassic/samples/wallet/Wallet.loyaltyPoints
+					sspush 255;
+					sand;
+					s2b;
+					bastore;
+					invokestatic 24;		// javacard/framework/JCSystem.commitTransaction()V
+					goto L12;
+				L11:	sspush 27392;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	aload_1;
 					sconst_0;
 					sconst_2;
 					invokevirtual 27;		// sendBytes(SS)V
